@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
-
+	// test from git. 
 	/// lets keep track of lots of stuff here. 
 	/// what day is it
 	/// 
