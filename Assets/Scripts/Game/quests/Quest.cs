@@ -15,7 +15,9 @@ public class Quest : MonoBehaviour {
 	public int mapChance = 75; // higher numbers are easyer to map.  
 	public int monsterRate = 30; // higher value means more likeyer to see a monster per segment. 
 	public int eventRate = 10;  // same as above. 
+
 	public bool hasBoss = false; // is there a boss monster at the end? 
+
 	public int min_level_advised = 1; // min hero level recomended.
 	public int max_level_advised = 3;// no point visting above this level i guess. 
 
@@ -38,6 +40,7 @@ public class Quest : MonoBehaviour {
 
 
 	public bool isActive = true;  // active means heros can go here and fight n stuff. 
+	public bool isFlaged = false; // player set flag to guide where you want heros to go. 
 
 	public List<Hero> herosOnQuest; // not really used, can use to hit all heros in a dng with an event. 
 	public bool complete = false; 
@@ -284,6 +287,51 @@ public class Quest : MonoBehaviour {
 		Debug.Log ("reward paid");// flag this somewhere so no more rewards get paid for this segment. 
 
 	
+	}
+
+
+	public bool IsQuestFlaged(){
+	
+		return isFlaged;
+
+	}
+
+
+	// UI hooks below. 
+
+	public void SetFlagActive(){
+	
+		isFlaged = true;
+
+	}
+
+	public void SetFlagInactive(){
+
+		isFlaged = false;
+
+	}
+
+
+
+
+	public bool isQuestActive(){
+
+		return isActive; 
+
+	}
+
+	public string curentMapedPercent(){
+
+		double map = mapProgressStartOfDay;
+		double mapLength = length;
+		double percent = ((map / mapLength) *100);
+
+		//percent = decimal.Round (percent,2 );
+
+		Debug.Log ("map% =" + percent + " dng:" + dngName + " " + mapProgressStartOfDay + " " + length);
+		 
+		return percent.ToString ();
+
 	}
 
 }
