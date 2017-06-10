@@ -21,7 +21,9 @@ public class QuestUiPanel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+		ButtonColor ();
+
 	}
 	
 	// Update is called once per frame
@@ -58,14 +60,18 @@ public class QuestUiPanel : MonoBehaviour {
 
 	//why is this so hard?
 	public void ButtonColor(){
+		ColorBlock block = Flag_Button_UI.colors;
 
 		if (quest.isFlaged) {
 	
-		//	Flag_Button_UI. = Co;
-		}
-		else
-			//	Flag_Button_UI
-		{}
+			//	Flag_Button_UI. = Co;
+		} else
+	//		block.normalColor = new  Color (0f, 0f, 0f);
+			block.normalColor = Flag_Button_UI.colors.pressedColor;
+		Flag_Button_UI.colors = block;	
+		Debug.Log(	Flag_Button_UI.colors.pressedColor) ; 
+
+
 	}
 
 

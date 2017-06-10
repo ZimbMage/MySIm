@@ -470,6 +470,7 @@ MonoBehaviour:
   segmentBonusAmount: 
   segmentBonusPaid: 
   isActive: 0
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 1
@@ -2582,6 +2583,7 @@ MonoBehaviour:
   segmentBonusAmount: 
   segmentBonusPaid: 
   isActive: 0
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 1
@@ -3614,7 +3616,8 @@ MonoBehaviour:
   segmentBonusType: 
   segmentBonusAmount: 
   segmentBonusPaid: 
-  isActive: 1
+  isActive: 0
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 0
@@ -4314,7 +4317,8 @@ MonoBehaviour:
   segmentBonusType: 
   segmentBonusAmount: 
   segmentBonusPaid: 
-  isActive: 1
+  isActive: 0
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 1
@@ -4587,7 +4591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dngID: 1
-  dngName: cave
+  dngName: Dylan
   dnglevel: 1
   length: 4
   stamCost: 1
@@ -4608,6 +4612,7 @@ MonoBehaviour:
   segmentBonusAmount: 0000000000000000640000000000000000000000
   segmentBonusPaid: 
   isActive: 1
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 0
@@ -4776,6 +4781,7 @@ MonoBehaviour:
   segmentBonusAmount: 
   segmentBonusPaid: 
   isActive: 0
+  isFlaged: 0
   herosOnQuest: []
   complete: 0
   last_in_chain: 0
