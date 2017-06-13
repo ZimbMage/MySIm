@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour {
 
-	public QuestMaster questMaster; 
+	public QuestMaster questMaster; // used to calculate exp gain, may just replace with a formula. 
+	public EventMaster eventMaster; // used for events
+	public MonsterMaster monsterMaster; // used for monster fights? may just add a list of monsters to each dng and work from that. 
 
 
 	//dungeon = {"dngID": 1, "dngName":"The Cave","length":10, "progress":0, "monsterRate":30, "eventRate":10 }
@@ -115,9 +117,9 @@ public class Quest : MonoBehaviour {
 					 
 			}
 			else if (randomNumber<=eventRate){
-
-				//Debug.Log("random Event");
-
+				
+				Debug.Log("random Event");
+				eventMaster.dngEvent(theHero,dnglevel);
 			}
 			else{
 				//Debug.Log ("no event");

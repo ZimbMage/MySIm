@@ -164,6 +164,38 @@ public void dailyHeal ()  // heal for a percent of heros max HP
 
 	}
 
+	public void HealMe (float healPercent)  // heal for a percent of heros max HP
+	{
+
+		float Heal_Precent = healPercent / 100; 
+
+		float maxFLoat = maxHP;
+		// heal some amount
+		Debug.Log(maxFLoat + " " + Heal_Precent);
+		float heal_float = maxFLoat * Heal_Precent;  // 
+		Debug.Log("healing for " + heal_float);
+		if (heal_float < 1) {
+			heal_float = 1;
+		}
+
+		int Heal = (int)heal_float ;
+		Debug.Log ("heal amout again " + Heal);
+		HP = HP + Heal;
+		if (HP > maxHP) {
+			HP = maxHP;
+		}
+		//stam = maxStam; // refill stam every day. 
+
+	}
+
+
+	public void regainStam(){
+	
+		stam = maxStam; // refill stam every day. 
+
+
+	}
+
 
 
 	public void PlacesToGoToday(List<GameObject> points, bool leavetown){
@@ -298,10 +330,10 @@ public void dailyHeal ()  // heal for a percent of heros max HP
 			// increase HP every time, rest IDK, roll for it i guess, works for now. 
 
 			// code below is awful rewrite once real system is planeds. 
+
 			if (Random.Range (1, 100) > 50) {
 				maxStam = maxStam + 1;
 			}
-
 			if (Random.Range (1, 100) > 50) {
 				str = str + 1;
 			}
