@@ -10,6 +10,13 @@ public class QuestMaster : MonoBehaviour {
 	public List<Quest> quests; // this is all loaded in unity UI for now. 
 	public List<Quest> applicableQuests; 
 
+
+
+	// exp reward list | or replace this with a math fomural
+
+	public List<int> expForQuest;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -29,7 +36,29 @@ public class QuestMaster : MonoBehaviour {
 		// try to figure out what quest to send this hero on.
 
 		// 1st, are there any flags for this hero level/type
+
+		foreach (Quest quest in quests) {
+		
+			if (quest.isFlaged) {
+			
+				applicableQuests.Add (quest);
+			
+			}
+
+			// loop over
+			if(applicableQuests.Count>0){
+
+				return randomQuestPick ();
+
+
+			}
+
+		}
+
+
 		//NYI // will add this once i add a UI 
+
+
 		// next are there any quests of the recomend level range?
 
 		// lets build a list of all quests the hero falls into range of, then pick one at random. 
@@ -50,9 +79,9 @@ public class QuestMaster : MonoBehaviour {
 		if (applicableQuests.Count != 0) {
 			
 			Debug.Log (applicableQuests);
-			int somevalue = Random.Range (0, (applicableQuests.Count  )); // seems bad. 
-			Debug.Log ("randonly picked:" + somevalue);
-			return applicableQuests [somevalue]; // need to return one at random| curent code is error prone, need a try catch or something.
+		//	int somevalue = Random.Range (0, (applicableQuests.Count  )); // seems bad. 
+		//	Debug.Log ("randonly picked:" + somevalue);
+			return randomQuestPick(); // need to return one at random| curent code is error prone, need a try catch or something.
 
 		}
 		// last, is there a defult i should set it to?
@@ -65,6 +94,14 @@ public class QuestMaster : MonoBehaviour {
 	}
 
 
+	Quest randomQuestPick(){
+	
+	
+		int somevalue = Random.Range (0, (applicableQuests.Count  )); // seems bad. 
+		Debug.Log ("randonly picked:" + somevalue);
+		return applicableQuests [somevalue]; // need to return one at random| curent code is error prone, need a try catch or something.
 
+
+	}
 
 }

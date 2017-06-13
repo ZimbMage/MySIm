@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Quest : MonoBehaviour {
-	
+
+	public QuestMaster questMaster; 
+
+
 	//dungeon = {"dngID": 1, "dngName":"The Cave","length":10, "progress":0, "monsterRate":30, "eventRate":10 }
 	public int dngID = 1;
 	public string dngName = "cave";
@@ -143,6 +146,10 @@ public class Quest : MonoBehaviour {
 						questComplete ();
 					}
 					// give exp for a full run. // no gold. 
+
+					theHero.gainExp (questMaster.expForQuest [dnglevel]);
+
+
 					break; // leave the dng. 
 				}
 				else {
@@ -224,6 +231,7 @@ public class Quest : MonoBehaviour {
 
 		// set as compleat 
 		complete = true;
+		SetFlagInactive ();
 	}
 
 
@@ -299,9 +307,24 @@ public class Quest : MonoBehaviour {
 
 	// UI hooks below. 
 
+	public void SetFlag(){
+	
+		if (isFlaged) {
+		
+			isFlaged = false;
+
+		} else {
+		
+			isFlaged = true;
+		}
+	
+	}
+
+
 	public void SetFlagActive(){
 	
 		isFlaged = true;
+
 
 	}
 
@@ -310,6 +333,7 @@ public class Quest : MonoBehaviour {
 		isFlaged = false;
 
 	}
+
 
 
 

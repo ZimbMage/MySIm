@@ -15,6 +15,14 @@ public class HeroManager : MonoBehaviour {
 
 	// heros need to vist all stores then go on daily quest, if they are active. 
 
+
+
+	// exp and level stuff
+	public int levelCap = 20; 
+	public List<int> EXP_For_Next_Level; 
+
+
+
 	// Use this for initialization
 	void Start () {
 		quests	= this.gameObject.GetComponent<QuestMaster> ();

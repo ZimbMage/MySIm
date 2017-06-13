@@ -24,7 +24,7 @@ public class Hero : MonoBehaviour {
 
 	public int heroLevel = 1;
 	public int curentEXP = 0; 
-	public int EXP_TO_NEXT_LEVEL = 50;
+	public int EXP_TO_NEXT_LEVEL = 50;  //
 
 	public string role = "";  // set this up an emun later 
 	public string heroName = "Place holder bob";
@@ -265,9 +265,78 @@ public void dailyHeal ()  // heal for a percent of heros max HP
 		ReadyForQuests = false; // dont take new path orders till you get home.
 		placesToGo.AddRange( placesToReturn);   // (create this when ever a new hero is created.);
 
+		// try to level up. 
+		levelCheck();
+
+	}
+
+
+
+	public void gainExp(int expGained){
+	
+	
+		curentEXP = curentEXP + expGained;
 
 
 	}
+
+
+	public void levelCheck(){
+	
+	
+		if (curentEXP >= EXP_TO_NEXT_LEVEL && heroLevel<manager.levelCap) {
+		
+		
+			// do level up stuff. 
+
+			//level up
+			heroLevel = heroLevel+1;  // should i do this 1st or last?  
+
+			// increase stats
+			maxHP= maxHP+ 10; // need to figure out some system
+			HP = HP + 10; // heal for the ammount added. 	
+			// increase HP every time, rest IDK, roll for it i guess, works for now. 
+
+			// code below is awful rewrite once real system is planeds. 
+			if (Random.Range (1, 100) > 50) {
+				maxStam = maxStam + 1;
+			}
+
+			if (Random.Range (1, 100) > 50) {
+				str = str + 1;
+			}
+			if (Random.Range (1, 100) > 50) {
+				dex = dex + 1;
+			}
+			if (Random.Range (1, 100) > 50) {
+				wis = wis + 1;
+			}
+			if (Random.Range (1, 100) > 50) {
+				Int = Int + 1;
+			}
+			/// end awful code. 
+
+
+
+
+			// increase EXP to next level
+			EXP_TO_NEXT_LEVEL= manager.EXP_For_Next_Level[heroLevel];
+
+
+
+		}
+
+
+
+	}
+
+
+
+
+
+
+
+	// ui hooks 
 
 
 	public void Show_HeroGraphic(){
@@ -281,5 +350,9 @@ public void dailyHeal ()  // heal for a percent of heros max HP
 	public void Hide_HeroGraphic(){
 		heroGraphic.SetActive (false);
 	}
+
+
+
+
 
 }

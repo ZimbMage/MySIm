@@ -18,11 +18,14 @@ public class QuestUiPanel : MonoBehaviour {
 
 	//public GameObject Flag_button_UI;
 	public Button Flag_Button_UI;
+	public ColorBlock startColor; 
+
 
 	// Use this for initialization
 	void Start () {
 
-		ButtonColor ();
+		startColor = Flag_Button_UI.colors;
+	//	ButtonColor ();
 
 	}
 	
@@ -54,25 +57,35 @@ public class QuestUiPanel : MonoBehaviour {
 			this.gameObject.SetActive (false);
 
 		}
-
+		Debug.Log (Flag_Button_UI.colors.normalColor); 
 
 	}
 
 	//why is this so hard?
 	public void ButtonColor(){
 		ColorBlock block = Flag_Button_UI.colors;
-
+		Color col = Color.black;
 		if (quest.isFlaged) {
-	
+			
+
+		//	block.normalColor = Flag_Button_UI.colors.pressedColor;
+			block.normalColor = Color.green;
+			Flag_Button_UI.colors	 = block;	
+			Debug.Log (Flag_Button_UI.colors.normalColor); 
 			//	Flag_Button_UI. = Co;
-		} else
-	//		block.normalColor = new  Color (0f, 0f, 0f);
-			block.normalColor = Flag_Button_UI.colors.pressedColor;
-		Flag_Button_UI.colors = block;	
-		Debug.Log(	Flag_Button_UI.colors.pressedColor) ; 
+		
+		} 
+
+		else {
+			Flag_Button_UI.colors = startColor;	
+		}
+
+				//block.normalColor = new  Color (0f, 0f, 0f);
+		// set every thing back to normal. 
+	
 
 
 	}
 
-
+	//Debug.Log (Flag_Button_UI.colors.normalColor); 
 }
